@@ -5,6 +5,8 @@
 :root{
   --primary: #4F46E5;
   --accent: #F59E0B;
+  --surface: #FAFAFA;
+  --darksurface: #1A1A2E;
 }
 
 /* Focus outline requirements: 2px #4F46E5 with gap 3px */
@@ -20,4 +22,54 @@
     transition-duration: 100ms !important;
     scroll-behavior: auto !important;
   }
+  .pulse-anim { animation: none !important; }
+  .spin-anim { animation: none !important; }
 }
+
+/* Splash gradient */
+.splash-bg{
+  background: linear-gradient(180deg, #1A1A2E 0%, #4F46E5 100%);
+}
+
+/* Glass logo */
+.logo-glass{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.3);
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* pulse animation */
+@keyframes pulseScale{
+  0%{ transform: scale(0.8); opacity: 0; }
+  60%{ transform: scale(1.0); opacity: 1; }
+  100%{ transform: scale(1.05); }
+}
+.pulse-anim{
+  animation: pulseScale 600ms ease-out forwards;
+}
+.pulse-loop{
+  animation: pulseLoop 2s ease-in-out 600ms infinite;
+}
+@keyframes pulseLoop{
+  0%{ transform: scale(1.0); }
+  50%{ transform: scale(1.05); }
+  100%{ transform: scale(1.0); }
+}
+
+/* Spinner */
+@keyframes spin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+.spin-anim{ animation: spin 1.5s linear infinite; }
+
+/* Page indicator active expand */
+.page-dot{ width:8px; height:8px; border-radius:4px; }
+.page-dot.active{ width:24px; }
+
+/* Utility for material icons sizing */
+.material-symbol{ font-variation-settings: 'wght' 400; font-feature-settings: 'liga' 0; }
+

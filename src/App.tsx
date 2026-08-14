@@ -1,5 +1,9 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
+import SplashScreen from './ui/screens/SplashScreen'
+import OnboardingScreen from './ui/screens/OnboardingScreen'
+import AuthScreen from './ui/screens/AuthScreen'
+import HomeScreen from './ui/screens/HomeScreen'
 
 function Home(){
   return (
@@ -18,7 +22,7 @@ function Home(){
 function Screens(){
   return (
     <main className="min-h-screen p-6">
-      <h2 className="text-xl font-medium mb-4">Screens demo (placeholders)</h2>
+      <h2 className="text-xl font-medium mb-4">Screens demo</h2>
       <ul role="list" className="space-y-2">
         <li role="listitem"><Link to="/screens/splash" className="text-primary">Splash</Link></li>
         <li role="listitem"><Link to="/screens/onboarding" className="text-primary">Onboarding</Link></li>
@@ -29,27 +33,15 @@ function Screens(){
   )
 }
 
-function Placeholder({title}:{title:string}){
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h3 className="text-2xl font-medium mb-2">{title}</h3>
-        <p className="text-sm text-gray-600">Componente pendiente de implementación.</p>
-        <Link to="/" className="mt-4 inline-block text-primary">Volver</Link>
-      </div>
-    </div>
-  )
-}
-
 export default function App(){
   return (
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/screens" element={<Screens/>} />
-      <Route path="/screens/splash" element={<Placeholder title="Splash Screen (placeholder)"/>} />
-      <Route path="/screens/onboarding" element={<Placeholder title="Onboarding (placeholder)"/>} />
-      <Route path="/screens/auth" element={<Placeholder title="Login / Registro (placeholder)"/>} />
-      <Route path="/screens/home" element={<Placeholder title="Home / Dashboard (placeholder)"/>} />
+      <Route path="/screens/splash" element={<SplashScreen/>} />
+      <Route path="/screens/onboarding" element={<OnboardingScreen/>} />
+      <Route path="/screens/auth" element={<AuthScreen/>} />
+      <Route path="/screens/home" element={<HomeScreen/>} />
     </Routes>
   )
 }
