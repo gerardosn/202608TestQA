@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary: #4F46E5;
+  --accent: #F59E0B;
+}
+
+/* Focus outline requirements: 2px #4F46E5 with gap 3px */
+:focus-visible{
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: 100ms !important;
+    transition-duration: 100ms !important;
+    scroll-behavior: auto !important;
+  }
+}
